@@ -1,0 +1,82 @@
+//= inc/_head.html
+<body>
+	<div class="wrapper">
+		//= inc/_main-nav.html
+		<div class="page">
+			<header class="header-page">
+                <span class="btn-menu"><span></span></span>
+                <div class="page-title">
+                    <h3 class="page-title__h3">Strategy: Step 1 - Investment Goal</h3>
+                </div>
+                <div class="header-page__right">
+                    <ul class="header-panel">
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-search"></a>
+                        </li>
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-notification icon-notification_active"></a>
+                        </li>
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-message"></a>
+                        </li>
+                    </ul>
+                    <a href="#" class="user-panel">
+                        <div class="user-panel__img">
+                            <img src="images/img-user.jpg" alt="image description" class="user-panel__photo">
+                        </div>
+                        <span class="user-panel__name">Glen Larson</span>
+                    </a>
+                </div>
+            </header>
+            <!-- // header-page -->
+            <div class="container container__fluid">
+                <div class="main">
+                    <div class="info-block">
+                        <div class="info-block__icon">
+                            <span class="icon-attention"></span>
+                        </div>
+                        <div class="info-block__inner">
+                            <p class="info-block__message">
+                                The Investment Goal helps the investor to define his future financial needs and wishes.
+                                <a class="info-block__link" href="#">Learn-more</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="progress-line">
+                        <div class="progress-line__bar" style="width:75%"></div>
+                    </div>
+                    <h1 class="step-title">Goal Amount & Time Frame</h1>
+                    <div class="box-wrapper">
+                        <div class="box">
+                            <form class="box__goal-form column-centered" action="" method="POST">
+                                <h3 class="box__title">Define your time frame to reach the amount of money you need:</h3>
+                                <div class="box__range-wrapper range-wrapper">
+                                    <input class="input-range goal-time"
+                                        data-type="year"
+                                        type="range"
+                                        value="0"
+                                    >
+                                </div>
+                                <h3 class="box__title">My savings goal after the time mentioned above is:</h3>
+                                <div class="input-earn">
+                                    <span class="input-earn__icon icon-dollar">
+                                    </span>
+                                    <input class="input-earn__input goal-amount input" type="text">
+                                </div>
+                                <div class="box__footer">
+                                    <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>
+                                    <button class="box__next-btn btn" type="submit" disabled><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow-right"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<!-- / main -->
+		</div>
+		<!-- / page -->
+		<span class="fader"></span>
+    </div><!-- / wrapper -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

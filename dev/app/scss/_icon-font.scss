@@ -1,0 +1,228 @@
+@font-face {
+	font-family: 'icomoon';
+	src: url('#{$fonts}icomoon.eot?2mbvmd');
+	src: url('#{$fonts}icomoon.eot?2mbvmd#iefix') format('embedded-opentype'),
+		 url('#{$fonts}icomoon.ttf?2mbvmd') format('truetype'),
+		 url('#{$fonts}icomoon.woff?2mbvmd') format('woff'),
+		 url('#{$fonts}icomoon.svg?2mbvmd#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+  
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-dollar:before {
+    content: "\e917";
+  }
+  .icon-active-and-static:before {
+    content: "\e918";
+  }
+  .icon-active-dynamic:before {
+    content: "\e919";
+  }
+  .icon-associated-risks:before {
+    content: "\e91a";
+  }
+  .icon-attention:before {
+    content: "\e91b";
+  }
+  .icon-automation:before {
+    content: "\e91c";
+  }
+  .icon-bonds:before {
+    content: "\e91d";
+  }
+  .icon-cash--cash-equivalents:before {
+    content: "\e91e";
+  }
+  .icon-change:before {
+    content: "\e91f";
+  }
+  .icon-commodities:before {
+    content: "\e920";
+  }
+  .icon-commodity:before {
+    content: "\e921";
+  }
+  .icon-confident:before {
+    content: "\e922";
+  }
+  .icon-equities:before {
+    content: "\e923";
+  }
+  .icon-error:before {
+    content: "\e924";
+  }
+  .icon-every-day:before {
+    content: "\e925";
+  }
+  .icon-five-stars:before {
+    content: "\e926";
+  }
+  .icon-four-stars:before {
+    content: "\e927";
+  }
+  .icon-full-time:before {
+    content: "\e928";
+  }
+  .icon-high-risk-taker:before {
+    content: "\e929";
+  }
+  .icon-i-want:before {
+    content: "\e92a";
+  }
+  .icon-info:before {
+    content: "\e92b";
+  }
+  .icon-invest:before {
+    content: "\e92c";
+  }
+  .icon-modern-investments:before {
+    content: "\e92d";
+  }
+  .icon-novice:before {
+    content: "\e92e";
+  }
+  .icon-once-a-month:before {
+    content: "\e92f";
+  }
+  .icon-once-a-week:before {
+    content: "\e930";
+  }
+  .icon-one-star:before {
+    content: "\e931";
+  }
+  .icon-passion-investments:before {
+    content: "\e932";
+  }
+  .icon-passive-dynamic:before {
+    content: "\e933";
+  }
+  .icon-passive-static:before {
+    content: "\e934";
+  }
+  .icon-process:before {
+    content: "\e935";
+  }
+  .icon-professional-support:before {
+    content: "\e936";
+  }
+  .icon-real-estates:before {
+    content: "\e937";
+  }
+  .icon-special-expertise:before {
+    content: "\e938";
+  }
+  .icon-three-stars:before {
+    content: "\e939";
+  }
+  .icon-time-and-effort:before {
+    content: "\e93a";
+  }
+  .icon-trading-experience:before {
+    content: "\e93b";
+  }
+  .icon-trading:before {
+    content: "\e93c";
+  }
+  .icon-twice-a-month:before {
+    content: "\e93d";
+  }
+  .icon-twice-a-week:before {
+    content: "\e93e";
+  }
+  .icon-two-stars:before {
+    content: "\e93f";
+  }
+  .icon-arrow-left:before {
+    content: "\e911";
+  }
+  .icon-arrow-right:before {
+    content: "\e940";
+  }
+  .icon-arrow-down:before {
+    content: "\e941";
+  }
+  .icon-arrow-top:before {
+    content: "\e942";
+  }
+  .icon-college:before {
+    content: "\e912";
+  }
+  .icon-goal:before {
+    content: "\e913";
+  }
+  .icon-house:before {
+    content: "\e914";
+  }
+  .icon-menu:before {
+    content: "\e915";
+  }
+  .icon-retirement:before {
+    content: "\e916";
+  }
+  .icon-academy:before {
+    content: "\e900";
+  }
+  .icon-asset:before {
+    content: "\e901";
+  }
+  .icon-building:before {
+    content: "\e902";
+  }
+  .icon-chart:before {
+    content: "\e903";
+  }
+  .icon-check-circle:before {
+    content: "\e904";
+  }
+  .icon-dashboard:before {
+    content: "\e905";
+  }
+  .icon-double-arrows:before {
+    content: "\e906";
+  }
+  .icon-encyclopedia:before {
+    content: "\e907";
+  }
+  .icon-flag:before {
+    content: "\e908";
+  }
+  .icon-info-circle:before {
+    content: "\e909";
+  }
+  .icon-instruments:before {
+    content: "\e90a";
+  }
+  .icon-investment:before {
+    content: "\e90b";
+  }
+  .icon-message:before {
+    content: "\e90c";
+  }
+  .icon-notification:before {
+    content: "\e90d";
+  }
+  .icon-philosophy:before {
+    content: "\e90e";
+  }
+  .icon-search:before {
+    content: "\e90f";
+  }
+  .icon-star:before {
+    content: "\e910";
+  }
+  

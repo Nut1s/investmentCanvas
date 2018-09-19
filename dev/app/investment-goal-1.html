@@ -1,0 +1,105 @@
+//= inc/_head.html
+<body>
+	<div class="wrapper">
+		//= inc/_main-nav.html
+		<div class="page">
+			<header class="header-page">
+                <span class="btn-menu"><span></span></span>
+                <div class="page-title">
+                    <h3 class="page-title__h3">Strategy: Step 1 - Investment Goal</h3>
+                </div>
+                <div class="header-page__right">
+                    <ul class="header-panel">
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-search"></a>
+                        </li>
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-notification icon-notification_active"></a>
+                        </li>
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-message"></a>
+                        </li>
+                    </ul>
+                    <a href="#" class="user-panel">
+                        <div class="user-panel__img">
+                            <img src="images/img-user.jpg" alt="image description" class="user-panel__photo">
+                        </div>
+                        <span class="user-panel__name">Glen Larson</span>
+                    </a>
+                </div>
+            </header>
+            <!-- // header-page -->
+            <div class="container container__fluid">
+                <div class="main">
+                    <div class="info-block">
+                        <div class="info-block__icon">
+                                <span class="icon-attention"></span>
+                        </div>
+                        <div class="info-block__inner">
+                            <p class="info-block__message">
+                                The Investment Goal helps the investor to define his future financial needs and wishes.
+                                <a class="info-block__link" href="#">Learn-more</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="progress-line">
+                        <div class="progress-line__bar" style="width:25%"></div>
+                    </div>
+                    <h1 class="step-title">Investment Goal</h1>
+                        <div class="box-wrapper">
+                            <div class="box">
+                                <form class="box__goal-form" action="" method="POST">
+                                    <h3 class="box__title">Define your Investment Goal</h3>
+                                    <div class="items-wrap">
+                                        <div class="row">
+                                            <div class="col-xs-12 box__col_custom-padding">
+                                                <input class="choose goal-name hidden-radio" id="choose-1" type="radio" name="radio-group" value="1">
+                                                <label class="box__item" for="choose-1">
+                                                    <span class="box__icon icon-house"></span>
+                                                    <p class="box__item-text">I want to be independent and own a house someday</p>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-12 box__col_custom-padding">
+                                                <input class="choose goal-name hidden-radio" id="choose-2" type="radio" name="radio-group" value="2">
+                                                <label class="box__item" for="choose-2">
+                                                    <span class="box__icon icon-college"></span>
+                                                    <p class="box__item-text">I want to create saving for my kids to go to college</p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 box__col_custom-padding">
+                                                    <input class="choose goal-name hidden-radio" id="choose-3" type="radio" name="radio-group" value="3">
+                                                    <label class="box__item" for="choose-3">
+                                                        <span class="box__icon icon-retirement"></span>
+                                                        <p class="box__item-text">I want to create savings for retirement</p>
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-12 box__col_custom-padding">
+                                                    <input class="choose goal-name hidden-radio own-goal" id="choose-4" type="radio" name="radio-group" value="4">
+                                                    <label class="box__item box__own-goal" for="choose-4">
+                                                        <span class="box__icon icon-goal"></span>
+                                                        <p class="box__item-text">Define your own investment goal</p>
+                                                        <input class="box__own-goal-input goal-own input" type="text" placeholder="Define your own goal here">
+                                                    </label>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="box__footer">
+                                        <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>
+                                        <button class="box__next-btn btn" type="submit" disabled><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow-right"></span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+			<!-- / main -->
+		</div>
+		<!-- / page -->
+		<span class="fader"></span>
+    </div><!-- / wrapper -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
