@@ -31,8 +31,8 @@
 		<div class="page">
 			<header class="header-page">
                 <span class="btn-menu"><span></span></span>
-                <div class="header-title">
-                    <h3>Strategy: Step 4 - Investor Preferences</h3>
+                <div class="page-title">
+                    <h3 class="page-title__h3">Strategy: Step 4 - Investor Preferences</h3>
                 </div>
                 <div class="header-page__right">
                     <ul class="header-panel">
@@ -84,47 +84,49 @@
                                     <span class="risk-container__icon icon-high-risk-taker"></span>
                                     <h3 class="risk-container__risk-title box__title box__title_pb-15">High Risk Taker</h3>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-8 box__col_custom-padding">
-                                        <input class="choose hidden-radio pref-a2" id="choose-1" type="checkbox" name="radio-group" value="5">
-                                        <label class="box__item box__item_hg-250 box__item_mb-34" for="choose-1">
-                                            <div class="box__checkbox-wrapper">
-                                                <span class="box__checkbox">
-                                                </span>
-                                            </div>
-                                            <span class="box__icon icon-commodity"></span>
-                                            <p class="box__item-text">I am willing to invest into commodities</p>
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-8 box__col_custom-padding">
-                                        <input class="choose hidden-radio pref-a2" id="choose-2" type="checkbox" name="radio-group" value="5">
-                                        <label class="box__item box__item_hg-250 box__item_mb-34" for="choose-2">
-                                            <div class="box__checkbox-wrapper">
-                                                <span class="box__checkbox">
-                                                </span>
-                                            </div>
-                                            <span class="box__icon icon-associated-risks"></span>
-                                            <p class="box__item-text">I am willing to invest into modern investments with higher associated risks (e.g. Bitcoins)</p>
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-8 box__col_custom-padding">
-                                        <input class="choose hidden-radio pref-a2" id="choose-3" type="checkbox" name="radio-group" value="5">
-                                        <label class="box__item box__item_hg-250 box__item_mb-34" for="choose-3">
-                                            <div class="box__checkbox-wrapper">
-                                                <span class="box__checkbox">
-                                                </span>
-                                            </div>
-                                            <span class="box__icon icon-special-expertise"></span>
-                                            <p class="box__item-text">I have a special expertise and passion which I would like to use to invest (e.g. art, cars, wine, music,jewelry, ...)</p>
-                                        </label>    
+                                <div class="items-wrap">
+                                    <div class="row">
+                                        <div class="col-xs-8 box__col_custom-padding">
+                                            <input class="choose hidden-radio pref-check pref-com" id="choose-1" type="checkbox" name="radio-group" value="true">
+                                            <label class="box__item box__item_hg-250 box__item_mb-34" for="choose-1">
+                                                <div class="box__checkbox-wrapper">
+                                                    <span class="box__checkbox">
+                                                    </span>
+                                                </div>
+                                                <span class="box__icon icon-commodity"></span>
+                                                <p class="box__item-text">I am willing to invest into commodities</p>
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-8 box__col_custom-padding">
+                                            <input class="choose hidden-radio pref-check pref-modern" id="choose-2" type="checkbox" name="radio-group" value="true">
+                                            <label class="box__item box__item_hg-250 box__item_mb-34" for="choose-2">
+                                                <div class="box__checkbox-wrapper">
+                                                    <span class="box__checkbox">
+                                                    </span>
+                                                </div>
+                                                <span class="box__icon icon-associated-risks"></span>
+                                                <p class="box__item-text">I am willing to invest into modern investments with higher associated risks (e.g. Bitcoins)</p>
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-8 box__col_custom-padding">
+                                            <input class="choose hidden-radio pref-check pref-passion" id="choose-3" type="checkbox" name="radio-group" value="true">
+                                            <label class="box__item box__item_hg-250 box__item_mb-34" for="choose-3">
+                                                <div class="box__checkbox-wrapper">
+                                                    <span class="box__checkbox">
+                                                    </span>
+                                                </div>
+                                                <span class="box__icon icon-special-expertise"></span>
+                                                <p class="box__item-text">I have a special expertise and passion which I would like to use to invest (e.g. art, cars, wine, music,jewelry, ...)</p>
+                                            </label>    
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="chart-wrapper">
-                                        <div id="risk" style="width: 100%;height:100%;"></div>s
+                                <div class="risk-chart-wrapper">
+                                    <canvas height="280px" id="risk-chart"></canvas>
                                 </div>
                                 <div class="box__footer">
-                                    <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow"></span><span class="hide-mobile">Back</span></a>
-                                    <button class="box__next-btn btn" type="submit" disabled><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow"></span></button>
+                                    <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>
+                                    <button class="box__next-btn btn" type="submit" disabled><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow-right"></span></button>
                                 </div>
                             </form>
                         </div>
@@ -137,5 +139,60 @@
 		<span class="fader"></span>
     </div><!-- / wrapper -->
     <script src="js/scripts.js"></script>
+    <script>
+        // Risk Chart Pie
+        var ctx = document.getElementById('risk-chart').getContext('2d');
+        var riskChart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'pie',
+
+            // The data for our dataset
+            data: {
+                labels: ["Low Risk","Medium Risk","Risk"],
+                datasets: [{
+                    borderColor: '#fff',
+                    borderWidth: 10,
+                    data: [15,60, 25],
+                    circumference: 100 * Math.PI,
+                    backgroundColor: [
+                        '#93c25f',
+                        '#7a8dcf',
+                        '#e68787'
+                    ],
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                title: {
+                    display: true,
+                    text: 'Your risk allocation',
+                    fontFamily: 'Montserrat,sans-serif',
+                    fontStyle: '400',
+                    fontSize: 20,
+                    fontColor: '#505050'
+
+                },
+                tooltips: {
+                    enabled: false
+                },
+                hover: {mode: null},
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        fontSize: 16,
+                        fontStyle: '400',
+                        fontFamily: 'Montserrat,sans-serif',
+                        padding: 40
+                    }
+                },
+                animation: {
+                    onProgress: drawPercentage
+                }
+            }
+        });
+    </script>
 </body>
 </html>
