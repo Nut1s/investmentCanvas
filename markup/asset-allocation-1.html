@@ -126,6 +126,9 @@
                                 </div>
                             </div>
                             <div class="box">
+                                <div class="expected-growth-wrapper">
+                                    <canvas  class="expected-growth" id="expected-growth"></canvas>
+                                </div>
                                 <form class="box__goal-form" action="" method="POST">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-8 box__col_custom-padding">
@@ -271,19 +274,23 @@
                                     </div>
                                     <div class="items-wrap">
                                          <div class="row">
-                                            <div class="col-xs-12 box__col_custom-padding">
+                                            <div class="col-sm-12 col-xs-24 box__col_custom-padding">
                                                 <input class="choose goal-q3 hidden-radio" id="choose-1" type="radio" name="radio-group" value="1">
                                                 <label class="box__item" for="choose-1">
                                                     <span class="box__icon icon-i-want"></span>
-                                                    <p class="box__item-text">I want to use the suggested asset allocation</p>
+                                                    <div class="box__text-block">
+                                                       <p class="box__item-text">I want to use the suggested asset allocation</p> 
+                                                    </div>
                                                 </label>
                                             </div>
                                             <div class="box__separator"><span>or</span></div>  
-                                            <div class="col-xs-12 box__col_custom-padding">
+                                            <div class="col-sm-12 col-xs-24 box__col_custom-padding">
                                                 <input class="choose goal-q3 hidden-radio" id="choose-2" type="radio" name="radio-group" value="2">
                                                 <label class="box__item" for="choose-2">
                                                     <span class="box__icon icon-instruments"></span>
-                                                    <p class="box__item-text">Let me change this asset allocation</p>
+                                                    <div class="box__text-block">
+                                                       <p class="box__item-text">Let me change this asset allocation</p> 
+                                                    </div>
                                                 </label>
                                             </div>
                                         </div>
@@ -304,6 +311,7 @@
     </div><!-- / wrapper -->
     <script src="js/scripts.js"></script>
     <script>
+         Chart.defaults.global.defaultFontFamily= 'Montserrat,sans-serif';
         // Invest Portfolio Pie Chart
         var ctx = document.getElementById('invest-portfolio').getContext('2d');
         var investPortfolio = new Chart(ctx, {
@@ -341,6 +349,155 @@
                 }
             }
         });
+
+    // Expected Growth chart
+
+		var chart = new Chart('expected-growth', {
+			type: 'line',
+			data: {
+				labels: ['06.2018', '06.2018', '06.2018', '06.2018'],
+				datasets: [ 
+                {
+                    label: 'Expected Portfolio Value',
+                    fillColor: "rgba(151,187,205,0.2)",
+                    borderColor: '#9eaee7',
+                    backgroundColor: '#9eaee7',
+					data: [
+                        0, 140, 240, 340
+                    ],
+                    
+                },
+                {
+					label: 'Standard Devation 2',
+                    borderColor: '#d7e0ff',
+                    backgroundColor: '#d7e0ff',
+					data: [
+                        0, 180, 280, 380
+					],
+                },
+                {
+					label: 'Standard Devation 1',
+                    borderColor: '#c3d0ff',
+                    backgroundColor: '#c3d0ff',
+					data: [
+                        0, 220, 320, 420
+					],
+                },
+                {
+                    label: 'Standard Devation -1',
+                    fill: true,
+                    borderColor: '#8c9ddb',
+                    backgroundColor: '#8c9ddb',
+					data: [
+                        0, 260, 360, 460
+					],
+                },
+                {
+					label: 'Standard Devation -2',
+                    borderColor: '#7a8ccb',
+                    backgroundColor: '#7a8ccb',
+					data: [
+                        0, 300, 400, 520
+					],
+				}]
+			},
+			options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    mode: 'nearest',
+                    position: 'average',
+                    backgroundColor: '#fff',
+                    bodyFontColor: 'grey',
+                    titleFontColor: 'grey',
+                    bodyFontSize: 20,
+                    bodySpacing: 5,
+                    custom: function(tooltip) {
+                        if (!tooltip) return;
+                        // disable displaying the color box;
+                        tooltip.displayColors = false;
+                    },
+                    callbacks: {
+                        // use label callback to return the desired label
+                        label: function(tooltipItem, data) {
+                        return tooltipItem.xLabel + " :" + tooltipItem.yLabel;
+                        },
+                        // remove title
+                        title: function(tooltipItem, data) {
+                        return;
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display:false
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            display:false
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Values'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return value + 'k';
+                            }
+                        },
+                    }]
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        fontColor: 'grey',
+                        usePointStyle: true,
+                        fontSize: 12,
+                        fontStyle: '400',
+                        fontFamily: 'Montserrat,sans-serif',
+                        padding: 20
+                    
+                    }
+                },
+                annotation: {
+                    annotations: [{
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: 180,
+                        endValue: 200,
+                        borderColor: '#4c5d9c',
+                        borderWidth: 4,
+                        label: {
+                        enabled: true,
+                        fontColor: '#4c5d9c',
+                        backgroundColor: 'rgba(0,0,0,0)',
+                        content: 'YOUR GOAL',
+                        position: 'left',
+                        xPadding: 10,
+                        xAdjust: 10,
+                        yAdjust: -10
+                        }
+                    },
+                    {
+                        type: 'line',
+                        mode: 'vertical',
+                        scaleID: 'y-axis-0',
+                        value: 60,
+                        borderColor: '#4c5d9c',
+                        borderWidth: 4,
+                        label: {
+                        enabled: false,
+                        }
+                    }       
+                    
+                ]
+                }
+            }
+		});
+	
     </script>
 </body>
 </html>
