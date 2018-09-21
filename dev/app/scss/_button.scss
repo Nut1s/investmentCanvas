@@ -1,0 +1,35 @@
+// btn
+.btn {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	vertical-align: top;
+	text-align: center;
+	padding: 15px 10px;
+	border: none;
+	border-radius: 30px;
+	margin: 0;
+	min-width: 152px;
+	color: $white;
+	font-size: 14px;
+	line-height: 20px;
+	outline: none !important;
+	box-shadow: none;
+	font-weight: 500;
+	transition: background .3s, color .3s, border .3s;
+	&.disabled,
+	&[disabled]{
+		cursor: default;
+	}
+	&__success{
+		background: $mantis;
+		color: $white;
+		&:hover{
+			background: darken($mantis, .2);
+			color: $white;
+		}
+	}
+	@include media("<phone") {
+		
+	}
+}

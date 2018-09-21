@@ -1,0 +1,177 @@
+.input{
+    height: 45px;
+    border: 1px solid $white-blue;
+    padding: 5px;
+}
+.input-earn{
+    position: relative;
+    font-size: 20px;
+    margin-bottom: 25px;
+    &__icon{
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        background: $white-blue;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 45px;
+        color: $mantis;
+        font-size: 28px;
+    }
+    &__input{
+        max-width: 220px;
+        padding-left: 55px;
+        text-align: center;
+        &_width-100{
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+  
+  .input-range{
+    -webkit-appearance: none;
+    background: none;
+    width: 100%;
+    display: block;
+  }
+  
+  .input-range::-webkit-slider-runnable-track {
+    height: 4px;
+    width: 100%;
+    background: $white-blue;
+    border: none;
+  }
+  
+  .input-range::-ms-track {
+    height: 4px;
+    width: 100%;
+    background: $white-blue;
+    border: none;
+  }
+  
+  .input-range::-moz-range-track {
+    height: 4px;
+    width: 100%;
+    background: $white-blue;
+    border: none;
+  }
+  
+  .input-range::-webkit-slider-thumb {
+    background: $moody_blue;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;  
+    -webkit-appearance: none;
+    border: none;
+    margin-top: -10px;
+    position: relative;
+  }
+  
+  .input-range::-ms-thumb {
+    background: $moody_blue;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;  
+    -webkit-appearance: none;
+    border: none;
+    margin-top: -10px;
+    position: relative;
+  }
+  
+  .input-range::-moz-range-thumb {
+    background: $moody_blue;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;  
+    -webkit-appearance: none;
+    border: none;
+    margin-top: -10px;
+    position: relative;
+  }
+
+//   Light blue
+  .input-range_light-blue::-webkit-slider-thumb{
+    background: $light-blue;
+  }
+  .input-range_light-blue::-ms-thumb{
+    background: $light-blue;
+  }
+  .input-range_light-blue::-moz-range-thumb{
+    background: $light-blue;
+  }
+
+//   Mantis
+  .input-range_mantis::-webkit-slider-thumb{
+    background: $mantis;
+  }
+  .input-range_mantis::-ms-thumb{
+    background: $mantis;
+  }
+  .input-range_mantis::-moz-range-thumb{
+    background: $mantis;
+  }
+
+//   Orange
+  .input-range_orange::-webkit-slider-thumb{
+    background: $orange;
+  }
+  .input-range_orange::-ms-thumb{
+    background: $orange;
+  }
+  .input-range_orange::-moz-range-thumb{
+    background: $orange;
+  }
+
+//   Tonys Pink
+.input-range_tonys-pink::-webkit-slider-thumb{
+    background: $tonys_pink;
+  }
+  .input-range_tonys-pink::-ms-thumb{
+    background: $tonys_pink;
+  }
+  .input-range_tonys-pink::-moz-range-thumb{
+    background: $tonys_pink;
+  }
+
+//   Yellow
+.input-range_yellow::-webkit-slider-thumb{
+    background: $yellow;
+  }
+  .input-range_yellow::-ms-thumb{
+    background: $yellow;
+  }
+  .input-range_yellow::-moz-range-thumb{
+    background: $yellow;
+  }
+
+  //   Lime green
+.input-range_lime-green::-webkit-slider-thumb{
+    background: $lime_green;
+  }
+  .input-range_lime-green::-ms-thumb{
+    background: $lime_green;
+  }
+  .input-range_lime-green::-moz-range-thumb{
+    background: $lime_green;
+  }
+
+  .range-val{
+    position: absolute;
+    top: -40px;
+    display: none;
+    border-radius: 3px;
+    color: #777;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .input-range:active + .range-val {
+    display: block;
+    transform: translateX(-50%);
+  }

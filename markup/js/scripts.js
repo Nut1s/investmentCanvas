@@ -299,22 +299,22 @@ var allo_cash = assetEarn.cash(),
 
 	// // Sliders range val
 	function showRangeVal(){
-		$('.input-range').on('input', function() {
 
-		var control = $(this),
+		$('.input-range').on('input', function() {
+			var control = $(this),
 			controlMin = control.attr('min'),
 			controlMax = control.attr('max'),
 			controlVal = control.val(),
 			controlThumbWidth = 20;
 			controlType = control.data('type')
 		
-		var range = controlMax - controlMin;
-		
-		var position = ((controlVal - controlMin) / range) * 100;
-		var positionOffset = Math.round(controlThumbWidth * position / 100) - (controlThumbWidth / 2);
-		var output = control.next('.range-val');
-		
-		output.css('left', 'calc(' + position + '% - ' + positionOffset + 'px)').text(controlVal + ' ' + controlType);
+			var range = controlMax - controlMin;
+			
+			var position = ((controlVal - controlMin) / range) * 100;
+			var positionOffset = Math.round(controlThumbWidth * position / 100) - (controlThumbWidth / 2);
+			var output = control.next('.range-val');
+			
+			output.css('left', 'calc(' + position + '% - ' + positionOffset + 'px)').text(controlVal + ' ' + controlType);
 		
 		});
 	}

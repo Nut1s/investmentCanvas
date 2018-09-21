@@ -1,0 +1,124 @@
+//= inc/_head.html
+<body>
+	<div class="wrapper">
+		//= inc/_main-nav.html
+		<div class="page">
+			<header class="header-page">
+                <span class="btn-menu"><span></span></span>
+                <div class="page-title">
+                    <h3 class="page-title__h3">Strategy: Step 4 - Investor Preferences</h3>
+                </div>
+                <div class="header-page__right">
+                    <ul class="header-panel">
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-search"></a>
+                        </li>
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-notification icon-notification_active"></a>
+                        </li>
+                        <li class="header-panel__item">
+                            <a href="#" class="header-panel__btn icon-message"></a>
+                        </li>
+                    </ul>
+                    <a href="#" class="user-panel">
+                        <div class="user-panel__img">
+                            <img src="images/img-user.jpg" alt="image description" class="user-panel__photo">
+                        </div>
+                        <span class="user-panel__name">Glen Larson</span>
+                    </a>
+                </div>
+            </header>
+            <!-- // header-page -->
+            <div class="container container__fluid">
+                <div class="main">
+                    <div class="info-block">
+                        <div class="info-block__icon">
+                                <span class="icon-attention"></span>
+                        </div>
+                        <div class="info-block__inner">
+                            <p class="info-block__message">
+                                Examples of investor preferences include among others the investor’s attitude towards risk 
+                                in general or large losses or intermediate drawdowns in particular, his evaluation frequency, 
+                                liquidity requirements or his reference point for performance evaluation (e.g. beating the market, keeping up with the Joneses, 
+                                generating positive absolute returns etc.).
+                                <a class="info-block__link" href="#">Learn-more</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="progress-line">
+                        <div class="progress-line__bar" style="width:25%"></div>
+                    </div>
+                    <h1 class="step-title">Rate the following statements:</h1>
+                    <div class="box-wrapper">
+                        <div class="box">
+                            <form class="box__goal-form" action="" method="POST">
+                                <h3 class="box__title box__title_pb-15">Don't hate the player, hate the game!</h3>
+                                <p class="box__subtitle">I consider ups and downs in the investing as part of the game</p>
+                                    <div class="box__preferences">
+                                    <div class="items-wrap">
+                                        <div class="row">
+                                            <div class="col-xs-24 box__col_custom-padding">
+                                                <input class="choose hidden-radio pref-a1" id="choose-1" type="radio" name="radio-group" value="5">
+                                                <label class="box__item box__item_horizontal" for="choose-1">
+                                                    <span class="box__icon icon-one-star"></span>
+                                                    <div class="box__text-block">
+                                                       <p class="box__item-text">Strongly agree</p> 
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-24 box__col_custom-padding">
+                                                <input class="choose hidden-radio pref-a1" id="choose-2" type="radio" name="radio-group" value="4">
+                                                <label class="box__item box__item_horizontal" for="choose-2">
+                                                    <span class="box__icon icon-two-stars"></span>
+                                                    <div class="box__text-block">
+                                                        <p class="box__item-text">Agree</p>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-24 box__col_custom-padding">
+                                                <input class="choose hidden-radio pref-a1" id="choose-3" type="radio" name="radio-group" value="3">
+                                                <label class="box__item box__item_horizontal" for="choose-3">
+                                                    <span class="box__icon icon-three-stars"></span>
+                                                    <div class="box__text-block">
+                                                        <p class="box__item-text">I don't know</p>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-24 box__col_custom-padding">
+                                                <input class="choose hidden-radio pref-a1" id="choose-4" type="radio" name="radio-group" value="2">
+                                                <label class="box__item box__item_horizontal" for="choose-4">
+                                                    <span class="box__icon icon-four-stars"></span>
+                                                    <div class="box__text-block">
+                                                        <p class="box__item-text">Disagree</p>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-24 box__col_custom-padding">
+                                                <input class="choose hidden-radio pref-a1" id="choose-5" type="radio" name="radio-group" value="1">
+                                                <label class="box__item box__item_horizontal box__item_mb-34" for="choose-5">
+                                                    <span class="box__icon icon-five-stars"></span>
+                                                    <div class="box__text-block">
+                                                        <p class="box__item-text">Strongly disagree</p>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box__footer">
+                                    <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>
+                                    <button class="box__next-btn btn" type="submit" disabled><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow-right"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<!-- / main -->
+		</div>
+		<!-- / page -->
+		<span class="fader"></span>
+    </div><!-- / wrapper -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

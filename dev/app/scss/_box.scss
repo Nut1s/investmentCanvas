@@ -1,0 +1,531 @@
+.box{
+	position: relative;
+	padding: 34px;
+	background: $white;
+	width: 60%;
+	max-width: 900px;
+	min-width: 600px;
+	box-shadow: 0 15px 50px rgba($moody_blue, .3);
+	&_ph-75{
+		padding-left: 75px;
+		padding-right: 75px;
+	}
+	@include media("<tablet") {
+		width: 90%;
+		min-width: 300px;
+	}
+	@include media("<phone") {
+		width: 100%;
+		min-width: 300px;
+		padding: 20px;
+	}
+	&__current-page{
+		position: absolute;
+		top: -35px;
+		right: 0;
+		color: $emperor;
+		font-size: 18px;
+		@include media("<tablet") {
+			font-size: 14px;
+			top: -23px;
+		}
+	}
+	&__title{
+		text-align: center;
+		padding-bottom: 34px;
+		margin: 0;
+		&_pb-15{
+			padding-bottom: 15px;
+		}
+	}
+	&__subtitle{
+		text-align: center;
+		padding-bottom: 15px;
+	}
+	.hidden-radio{
+		display: none;
+	}
+	.net-earings-title{
+		white-space: nowrap;
+
+	}
+	&__separator{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: $emperor;
+		text-transform: uppercase;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include media("<phone") {
+			display: none;
+		}
+	}
+	&__text-block{
+		text-align: center;
+		@include media("<phone") {
+			text-align: left;
+			padding-left: 30px;
+		}
+	}
+	&__col_custom-padding{
+		padding: 0;
+	}
+	&__row_custom-margin{
+		margin: 0;
+	}
+	.items-wrap{
+		position: relative;
+		&__mb-19{
+			margin-bottom: 19px;
+		}
+	}
+	&__item{
+		max-height: 240px;
+		min-height: 186px;
+		height: 186px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 30px 20px;
+		margin: 15px;
+		position: relative;
+		border: 1px solid rgba($moody_blue, .5);
+		overflow: hidden;
+		transition: .3s;
+		&_mb-34{
+			margin-bottom: 34px;
+		}
+		&_m-5{
+			margin: 5px;
+		}
+		&_hg-250{
+			height: 250px;
+		}
+		&_highlighted{
+			background: $mantis;
+			color: $white;
+			border-color: $mantis;
+			& .box__icon{
+				color: $white;
+			}
+		}
+		&_horizontal{
+			padding: 10px 25px;
+			height: 65px;
+			min-height: auto;
+			flex-direction: row;
+			justify-content: flex-start;
+
+			& .box__icon{
+				left: 20px;
+				font-size: 3em;
+			}
+			& .box__text-block {
+				padding-left: 30px;
+			}
+		}
+		&:hover{
+			box-shadow: 0 15px 50px rgba($moody_blue, .3);
+		}
+		@include media("<tablet") {
+			padding: 20px 10px;
+		}
+		@include media("<phone") {
+			padding: 10px 30px;
+			height: auto;
+			min-height: auto;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+
+	.hidden-radio:checked + &__item{
+		background: $mantis;
+		color: $white;
+		border-color: $mantis;
+	}
+	.hidden-radio:checked + &__own-goal{
+		height: auto;
+	}
+	.hidden-radio:checked + &__item &__icon{
+		color: $white;
+	}
+	&__checkbox-wrapper{
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		@include media("<phone") {
+			top: 5px;
+			left: 5px;
+		}
+	}
+	&__checkbox {
+		width: 18px;
+		height: 18px;
+		border: 1px solid $moody_blue;
+		border-radius: 3px;
+		position: relative;
+		display: inline-block;
+		&:before{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			vertical-align: middle;
+			line-height: 16px;
+		}
+	}
+	.hidden-radio:checked + &__item &__checkbox{
+		border-color: $white;
+	}
+	.hidden-radio:checked + &__item &__checkbox:before{
+		content: '\2713';
+	}
+	&__icon{
+		font-size: 5em;
+		color: $moody_blue;
+		margin-bottom: 10px;
+		@include media("<phone") {
+			font-size: 3em;
+		}
+	}
+	&__own-goal-input{
+		display: none;
+		width: 100%;
+		text-align: center;
+		margin-top: 10px;
+	}
+	&__sum-title{
+		text-align: center;
+	}
+	.hidden-radio:checked + &__item &__own-goal-input{
+		display: block
+	}
+	&__footer{
+		margin-top: 10px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+	}
+	&__next-btn{
+		padding: 0 15px 0 10px;
+		position: relative;
+		height: 35px;
+		min-width: 130px;
+		text-transform: uppercase;
+		@include media("<phone") {
+			border-radius: 50%;
+			min-width: auto;
+			width: 28px;
+			height: 27px;
+		}
+		.angle-right{
+			position: absolute;
+			right: 5px;
+		}
+	}
+	&__back-btn{
+		color: $moody_blue;
+		.angle-left{
+			margin-right: 15px;
+			width: 20px;
+			height: 20px;
+			padding: 7px 7px;
+			border: 1px solid rgba($moody_blue, .5);
+			border-radius: 50%;
+		}
+	}
+	&__range-wrapper{
+		margin:20px 0 34px 0;
+		position: relative;
+	}
+	&__amount-container{
+		display: flex;
+		align-items: center;
+		font-size: 25px;
+		margin-bottom: 25px;
+		font-weight: 500;
+		line-height: 30px;
+		@include media("<phone") {
+			font-size: 20px;
+		}
+		& .icon-dollar{
+			color: $mantis;
+		}
+	}
+	&__paragraph{
+		padding-bottom: 34px;
+	}
+	&__funds{
+		@include media("<tablet") {
+			display: none;
+		}
+	}
+	&__selections{
+		position: relative;
+		margin-bottom: 44px;
+	}
+	&__preferences{
+		margin-left: auto;
+		margin-right: auto;
+		width: 60%;
+		min-width: 220px;
+	}
+
+}
+
+.fund{
+	&__title{
+		height: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		font-size: 16px;
+		padding-bottom: 5px;
+		color: inherit;
+	}
+	&__text{
+		font-size: 12px;
+		color: inherit;
+	}
+	&_highlighted{
+		color: $mantis
+	}
+}
+
+
+
+.side-caption{
+	position: absolute;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	@include media("<phone") {
+		display: none;
+	}
+	&_left{
+		left: -40px;
+	}
+	&_right{
+		right: -40px;
+	}
+	&_bottom{
+		bottom: -20px;
+		width: 100%;
+		height: auto;
+	}
+	&__text{
+		white-space: nowrap;
+		text-align: center;
+		&_vertical{
+			transform: rotate(-90deg);
+		}
+	}
+	&__head{
+		text-transform: uppercase;
+	}
+	&__sub-head{
+		font-size: 10px;
+		margin-top: -5px;
+	}
+}
+.risk-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&__icon{
+		color: $tonys_pink;
+		font-size: 4em;
+		margin-bottom: 15px;
+	}
+}
+
+.investment-info{
+	background: $moody_blue;
+	color: $white;
+	padding: 10px 15px;
+	margin: 5px;
+	@include media("<phone") {
+		padding:  10px;
+	}
+	&_dark-blue{
+		background: $dark_blue;
+	}
+	&__title{
+		padding-bottom: 5px;
+	}
+	&__value-box{
+		font-weight: 800;
+		font-size: 20px;
+		@include media("<phone") {
+			font-size: 16px;
+		}
+	}
+}
+.investment-portfolio{
+	&_success{
+		background: $mantis;
+	}
+	&_not-successful{
+		background: $tonys_pink;
+	}
+}
+.aim-container{
+	margin: 5px 5px 0 5px;
+}
+.aim{
+	border-width: 1px;
+	border-style: solid;
+	position: relative;
+	padding: 15px 15px 15px 55px;
+	display: none;
+	&:before, &:after{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border: 12px solid transparent;	
+		border-top-width: 12px;
+		border-top-style: solid;
+		bottom: -24px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+	}
+	&:after{
+		border-top-color: $white;
+		bottom: -22px;
+	}
+
+	&__icon{
+		position: absolute;
+		font-size: 22px;
+		top: 14px;
+		left: 20px;
+	}
+	
+	&__not-reached, &__can-reached{
+		border-color: $tonys_pink;
+		&:before{
+			border-top-color: $tonys_pink;
+		}
+	}
+	&__should-reached{
+		border-color: $mantis;
+		&:before{
+			border-top-color: $mantis;
+		}
+	}
+	&__list{
+		counter-reset: list;
+		padding-left: 10px;
+	}
+	&__item{
+		list-style: none;
+		&:before{
+			content: counter(list, lower-alpha) ") ";
+			counter-increment: list;
+		}
+		a{
+			text-decoration: underline;
+			color: $moody-blue;
+		}
+	}
+}
+.ilocation-wrapper{
+	margin-top: 34px;
+	overflow-y: auto;
+}
+.ilocation-table{
+	border-collapse: collapse;
+	width: 100%;
+	min-width: 400px;
+	&__row>&__th:first-child{
+		text-align: left;
+		width: 60%;
+		@include media("<phone") {
+			width: 25%;
+		}
+	}
+	&__th{
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 1;
+		padding: 0 5px;
+	}
+	&__td{
+		text-align: center;
+		border-bottom: 1px solid $moody_blue;
+		height: 50px;
+		padding: 0 5px;
+	}
+	&__row-header{
+		text-align: left;
+		border-bottom: 1px solid $moody_blue;
+		font-size: 18px;
+		@include media("<phone") {
+			font-size: 14px;
+		}
+	}
+}
+.toggle-ilocation{
+	display: flex;
+	justify-content: center;
+	margin: 34px 0 19px 0;
+	&__btn{
+		border: 1px solid $moody-blue;
+		height: 35px;
+		padding: 0px 18px;
+		color: $moody_blue;
+		background: transparent;
+		min-width: 105px;
+		position: relative;
+		text-transform: uppercase;
+		justify-content: space-between;
+	}
+}
+.toggle-icon{
+	margin-left: 5px;
+}
+.risk-chart-wrapper{
+	width: 100%;
+	height: 400px;
+}
+.invest-portfolio{
+	max-width: 230px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.expected-growth-wrapper{
+	width: 100%;
+	height: 400px;
+}
+.risk-category{
+	font-weight: 500;
+	border-bottom: 1px solid #d7ddf1;
+	font-size: 16px;
+}
+.risk-suprange{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 34px;
+	&__title{
+		font-weight: 400;
+		font-size: 16px;
+	}
+	&__item{
+		padding: 0 5px;
+	}
+}
