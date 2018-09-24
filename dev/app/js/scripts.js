@@ -2,6 +2,7 @@
 //= inc/knockout-3.4.2.min.js
 //= inc/chart.min.js
 //= inc/chartjs-plugin-annotation.min.js
+//= inc/chartjs-plugin-labels.min.js
 //= inc/bindings.js
 
 
@@ -32,6 +33,8 @@ var pref_a1,
 	pref_com = false,
 	pref_modern = false,
 	pref_passion = false;
+	pref_data = [15,60,25],
+	new_pref_data = [20,40,40]
 
 var aim_reached = 2;
 
@@ -52,6 +55,7 @@ var allo_cash = assetEarn.cash(),
 		showRangeVal();
 		showAimBlock();
 		prefCheck();
+		assetInputs();
 	});
 
 	// Main Nav Menu
@@ -79,27 +83,18 @@ var allo_cash = assetEarn.cash(),
 			} 
 			else if($('.choose.own-goal').is(':checked')){
 				disableBtn();
-				checkInput('.box__box-input');
+				checkInput('.goal-own');
 			} 
 			else {
 				disableBtn();
 			}
 		});
 
-		// For investment-goal-2
-		checkInput('.input-earn__input');
-
-		// Helper functions
-		function enableBtn() {
-			$('.box__next-btn').removeAttr('disabled').addClass('btn__success');
-		}
-
-		function disableBtn() {
-			$('.box__next-btn').removeClass('btn__success').attr('disabled');
-		}
+		// For pages with range-inputs
+		checkInput('.input-earn__input, .input-range:not(".asset-input")');
 
 		function checkInput(classname) {
-			$(classname).keyup(function (e) { 
+			$(classname).change(function (e) { 
 				if($(this).val().length) {
 					enableBtn();
 				} else {
@@ -107,11 +102,35 @@ var allo_cash = assetEarn.cash(),
 				}
 			});
 		}
+
+	}
+	// Helper functions
+	function enableBtn() {
+		$('.box__next-btn').removeAttr('disabled').addClass('btn__success');
+	}
+	function disableBtn() {
+		$('.box__next-btn').removeClass('btn__success').attr('disabled');
 	}
 
 	// // Sliders range val
 	function showRangeVal(){
-
+		
+		$('.input-range').each(function() {
+			var control = $(this),
+			controlMin = control.attr('min'),
+			controlMax = control.attr('max'),
+			controlVal = control.val(),
+			controlThumbWidth = 20;
+			controlType = control.data('type')
+		
+			var range = controlMax - controlMin;
+			
+			var position = ((controlVal - controlMin) / range) * 100;
+			var positionOffset = Math.round(controlThumbWidth * position / 100) - (controlThumbWidth / 2);
+			var output = control.next('.range-val');
+			
+			output.css('left', 'calc(' + position + '% - ' + positionOffset + 'px)').text(controlVal + ' ' + controlType);				
+		})
 		$('.input-range').on('input', function() {
 			var control = $(this),
 			controlMin = control.attr('min'),
@@ -126,8 +145,7 @@ var allo_cash = assetEarn.cash(),
 			var positionOffset = Math.round(controlThumbWidth * position / 100) - (controlThumbWidth / 2);
 			var output = control.next('.range-val');
 			
-			output.css('left', 'calc(' + position + '% - ' + positionOffset + 'px)').text(controlVal + ' ' + controlType);
-		
+			output.css('left', 'calc(' + position + '% - ' + positionOffset + 'px)').text(controlVal + ' ' + controlType);			
 		});
 	}
 
@@ -225,14 +243,15 @@ var allo_cash = assetEarn.cash(),
 			var target =  $(this).data('target');
 			$(`.${target}`).slideToggle().toggleClass('no-visible');
 			if($(`.${target}`).hasClass('no-visible')){
-				$(this).find('.slide-trigger__text').text('more details')
-				$(this).find('.toggle-icon').removeClass('icon-arrow-top').addClass('icon-arrow-down')
-			} else{
 				$(this).find('.slide-trigger__text').text('less')
 				$(this).find('.toggle-icon').removeClass('icon-arrow-down').addClass('icon-arrow-top')
+			} else{
+				$(this).find('.slide-trigger__text').text('more details')
+				$(this).find('.toggle-icon').removeClass('icon-arrow-top').addClass('icon-arrow-down')
 			}
 		});
 	}
+	
 	function showAimBlock(){
 		if(aim_reached === 0) {
 			$('.aim__not-reached').show();
@@ -248,59 +267,15 @@ var allo_cash = assetEarn.cash(),
 		}
 	}
 
-	// Draw percentage on Pie Chart
-	function drawPercentage(){
-		var self = this,
-		chartInstance = this.chart,
-		ctx = chartInstance.ctx;
-		
-		ctx.font = "normal 12px Montserrat,sans-serif";
-		ctx.textAlign = "center";
-		ctx.fillStyle = "#ffffff";
-		
-		Chart.helpers.each(self.data.datasets.forEach(function (dataset, datasetIndex) {
-		var meta = self.getDatasetMeta(datasetIndex),
-			total = 0, //total values to compute fraction
-			labelxy = [],
-			offset = Math.PI / 2, //start sector from top
-			radius,
-			centerx,
-			centery, 
-			lastend = 0; //prev arc's end line: starting with 0
-		
-		for (var val of dataset.data) { total += val; } 
-		
-		Chart.helpers.each(meta.data.forEach( function (element, index) {
-			radius = 0.9 * element._model.outerRadius - element._model.innerRadius;
-			centerx = element._model.x;
-			centery = element._model.y;
-			var thispart = dataset.data[index],
-				arcsector = Math.PI * (2 * thispart / total);
-			if (element.hasValue() && dataset.data[index] > 0) {
-			labelxy.push(lastend + arcsector / 2 + Math.PI + offset);
-			}
-			else {
-			labelxy.push(-1);
-			}
-			lastend += arcsector;
-		}), self)
-		
-		var lradius = radius * 3 / 4.5;
-		for (var idx in labelxy) {
-		if (labelxy[idx] === -1) continue;
-		var langle = labelxy[idx],
-			dx = centerx + lradius * Math.cos(langle),
-			dy = centery + lradius * Math.sin(langle),
-			val = Math.round(dataset.data[idx] / total * 100);
-		ctx.fillText(val + '%', dx, dy);
-		}
-		
-		}), self);
-	}
 	// Redraw Pie if one of pref is checked
 	function prefCheck() {
 		$('.pref-check').change(function(){
-			redrawPie(riskChart, [10,20,30])
+			if($('.pref-check').is(':checked')){
+				redrawPie(riskChart, new_pref_data)
+			}
+			else{
+				redrawPie(riskChart, pref_data)
+			}
 		})
 	}
 	// Function of redrawing a Pie. 
@@ -309,19 +284,28 @@ var allo_cash = assetEarn.cash(),
 		chart.update();
 	}
 
+	// Asset Inputs 
 	function assetInputs(){
 		var assetInputs = $('.asset-input');
 		var valuesSum = 0;
-
 		calculateValuesSum();
-		setMax();
 
 		$('.asset-input').change(function(){
 			redrawPie(investPortfolio, [allo_cash, allo_bonds, allo_equities, allo_real_estates, allo_commodities, allo_modern, allo_passion])
 		});
 
+		if(valuesSum === 100) {
+			enableBtn()
+		}
+
 		assetInputs.change(function(){
 			calculateValuesSum()
+			if(valuesSum === 100) {
+				enableBtn()
+			}
+			else{
+				disableBtn()
+			}
 		});
 
 		function calculateValuesSum(){
@@ -330,18 +314,8 @@ var allo_cash = assetEarn.cash(),
 				valuesSum += +$(this).val()
 			});
 		};
-		function setMax(){
-			if(valuesSum === 100){
-				assetInputs.each(function(){
-					var currentVal = $(this).val()
-					if($(this).val() > currentVal) {
-						$(this).val(currentVal)
-					}
-				})
-			}
-		}
+
 	}
-	assetInputs()
 
 	var maxTotal = 100, 
     inputs = [].slice.call(document.getElementsByClassName('asset-input')),
@@ -357,12 +331,9 @@ var allo_cash = assetEarn.cash(),
         if(sum > maxTotal){
             target = e.target;
             target.value = target.value - (sum - maxTotal);
-            // next line is just for demonstrational purposes
-            e.preventDefault();
-            return false;
+
         }
-        // next line is just for demonstrational purposes
-        return true;
+
     };
 
 inputs.forEach( function(input){

@@ -56,7 +56,7 @@
                                             <p class="box__subtitle">(Rent, insurance, groceries,...)</p>
                                             <div class="input-earn width-100">
                                                 <span class="input-earn__icon icon-dollar"></span>
-                                                <input class="input-earn__input asset-earn-month input-earn__input_width-100 asset-expends-month input" type="text">
+                                                <input class="input-earn__input input-earn__input_width-100 asset-expends-month input" data-bind="textInput: monthly" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -66,14 +66,14 @@
                                             <p class="box__subtitle">(Taxes, tuition,...)</p>
                                             <div class="input-earn width-100">
                                                 <span class="input-earn__icon icon-dollar"></span>
-                                                <input class="input-earn__input input-earn__input_width-100 asset-expends-year input" type="text">
+                                                <input class="input-earn__input input-earn__input_width-100 asset-expends-year input" data-bind="textInput: yearly" type="text">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="column-centered">
                                     <h3 class="box__title box__title_pb-15">Sum of annual expenditures:</h3>
-                                    <p class="box__amount-container"><span class="icon-dollar"></span><span class="box__amount">18.900</span></p>
+                                    <p class="box__amount-container"><span class="icon-dollar"></span><span class="box__amount" data-bind="text: result">18.900</span></p>
                                 </div>
                                 <div class="box__footer">
                                     <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>

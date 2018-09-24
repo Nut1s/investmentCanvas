@@ -53,7 +53,7 @@
                         <div class="box-wrapper box-wrapper_justify-start">
                             <div class="aside">
                                 <div data-target="aside__inner" class="slide-trigger aside__toggle-aside">
-                                    <h3 class="aside__title">Investment Portfolio <span class="toggle-icon icon-arrow-top"></span></h3> 
+                                    <h3 class="aside__title">Investment Portfolio <span class="toggle-icon icon-arrow-down"></span></h3> 
                                 </div>
                                 <h3 class="aside__title aside__title_hide-tablet">Investment Portfolio</h3>
                                 <div class="aside__inner">
@@ -242,8 +242,8 @@
                                     </div>
                                     <div class="toggle-ilocation">
                                         <button type="button" data-target="ilocation-wrapper" class="slide-trigger toggle-ilocation__btn btn">
-                                            <span class="slide-trigger__text">Less</span> 
-                                            <span class="toggle-icon icon-arrow-top"></span>
+                                            <span class="slide-trigger__text">more details</span> 
+                                            <span class="toggle-icon icon-arrow-down"></span>
                                         </button>
                                     </div>
                                     <div class="items-wrap">
@@ -296,7 +296,7 @@
             data: {
                 datasets: [{
                     borderColor: '#fff',
-                    borderWidth: 10,
+                    borderWidth: 3,
                     data: [12, 45, 16, 27],
                     circumference: 100 * Math.PI,
                     backgroundColor: [
@@ -318,93 +318,170 @@
                 legend: {
                     display: false,
                 },
-                animation: {
-                    onProgress: drawPercentage
+                plugins: {
+                    labels: {
+                        render: 'percentage',
+                        fontColor: '#fff',
+                        fontSize: 14,
+                        fontFamily: 'Montserrat,sans-serif',
+                    }
                 }
             }
         });
 
     // Expected Growth chart
+        Chart.defaults.global.elements.line.borderWidth = 5;
+        Chart.defaults.global.elements.point.pointStyle = 'circle';
+        Chart.defaults.global.elements.point.hoverRadius = 7;
+        Chart.defaults.global.elements.point.hitRadius = 7;
+        Chart.defaults.global.elements.point.hoverBorderWidth = 2;
+        Chart.defaults.global.elements.point.hoverBorderColor = '#ffff'
 
 		var chart = new Chart('expected-growth', {
-			type: 'line',
+            type: 'line',
+            
 			data: {
-				labels: ['06.2018', '06.2018', '06.2018', '06.2018'],
+				labels: ['01.2019', '02.2019', '03.2019', '04.2019', '05.2019', '06.2019', '07.2019', '08.2019', '09.2019', '10.2019', '11.2019', '12.2019', '01.2020', '02.2020', '03.2020', '04.2020', '05.2020', '06.2020', '07.2020', '08.2020', '09.2020', '10.2020', '11.2020', '12.2020', '01.2021', '02.2021', '03.2021', '04.2021', '05.2021', '06.2021', '07.2021', '08.2021', '09.2021', '10.2021', '11.2021', '12.2021', '01.2022', '02.2022', '03.2022', '04.2022', '05.2022', '06.2022', '07.2022', '08.2022', '09.2022', '10.2022', '11.2022', '12.2022', '01.2023', '02.2023', '03.2023', '04.2023', '05.2023', '06.2023', '07.2023', '08.2023', '09.2023', '10.2023', '11.2023', '12.2023', '01.2024', '02.2024', '03.2024', '04.2024', '05.2024', '06.2024', '07.2024', '08.2024', '09.2024', '10.2024', '11.2024', '12.2024', '01.2025', '02.2025', '03.2025', '04.2025', '05.2025', '06.2025', '07.2025', '08.2025', '09.2025', '10.2025', '11.2025', '12.2025', '01.2026', '02.2026', '03.2026', '04.2026', '05.2026', '06.2026', '07.2026', '08.2026', '09.2026', '10.2026', '11.2026', '12.2026', '01.2027', '02.2027', '03.2027', '04.2027', '05.2027', '06.2027', '07.2027', '08.2027', '09.2027', '10.2027', '11.2027', '12.2027', '01.2028', '02.2028', '03.2028', '04.2028', '05.2028', '06.2028', '07.2028', '08.2028', '09.2028', '10.2028', '11.2028', '12.2028'],
 				datasets: [ 
                 {
                     label: 'Expected Portfolio Value',
-                    fillColor: "rgba(151,187,205,0.2)",
+                    fill: false,
                     borderColor: '#9eaee7',
-                    backgroundColor: '#9eaee7',
+                    backgroundColor: '#9eaee7',             
 					data: [
-                        0, 140, 240, 340
+                    2000,2344.69,2690.19,3036.50,3383.62,3731.55,4080.30,4429.87,4780.26,5131.47,5483.50,5836.36,7190.04,7546.90,7904.59,8263.12,8622.49,8982.71,9343.77,9705.68,10068.44,10432.05,10796.51,11161.82,12527.99,12897.36,13267.60,13638.71,14010.69,14383.54,14757.26,15131.86,15507.34,15883.70,16260.94,16639.06,18018.07,18400.31,18783.45,19167.49,19552.43,19938.27,20325.02,20712.67,21101.23,21490.70,21881.09,22272.39,23664.61,24060.09,24456.50,24853.84,25252.11,25651.31,26051.45,26452.53,26854.55,27257.51,27661.42,28066.27,29472.07,29881.17,30291.23,30702.25,31114.23,31527.18,31941.10,32355.99,32771.85,33188.68,33606.49,34025.28,35445.05,35868.15,36292.24,36717.33,37143.41,37570.49,37998.58,38427.67,38857.76,39288.86,39720.97,40154.10,41588.24,42025.74,42464.27,42903.83,43344.42,43786.04,44228.70,44672.40,45117.14,45562.92,46009.74,46457.61,47906.53,48358.85,48812.23,49266.67,49722.18,50178.76,50636.41,51095.13,51554.92,52015.79,52477.74,52940.78,54404.90,54872.45,55341.10,55810.85,56281.70,56753.65,57226.71,57700.88,58176.16,58652.56,59130.07,59608.70
                     ],
-                    
                 },
                 {
-					label: 'Standard Devation 2',
+                    label: 'Standard Devation 2',
+                    fill: false,
                     borderColor: '#d7e0ff',
-                    backgroundColor: '#d7e0ff',
+                    backgroundColor: '#d7e0ff', 
 					data: [
-                        0, 180, 280, 380
+                    2000,2460.16,2864.60,3264.02,3662.17,4060.93,4460.89,4861.99,5264.44,5669.45,6075.89,6484.12,7895.09,8318.08,8742.67,9169.67,9598.47,10028.62,10461.82,10896.04,11333.49,11772.31,12212.91,12655.89,14102.04,14557.95,15016.40,15475.70,15937.18,16399.21,16863.39,17331.54,17802.27,18274.13,18749.26,19226.31,20703.87,21191.55,21680.89,22170.48,22663.30,23158.07,23658.10,24157.52,24659.75,25163.56,25672.72,26181.03,27692.37,28212.09,28732.44,29257.91,29781.58,30308.07,30836.24,31371.09,31905.40,32444.31,32986.81,33531.85,35078.34,35631.25,36183.28,36740.46,37301.81,37866.34,38433.01,39000.77,39568.53,40143.08,40715.53,41292.84,42874.09,43464.17,44056.26,44649.34,45242.36,45834.24,46433.04,47028.64,47629.29,48234.10,48842.16,49452.53,51064.26,51681.80,52309.00,52934.66,53557.71,54187.76,54824.01,55454.66,56089.65,56728.10,57369.12,58011.80,59655.20,60315.46,60974.66,61631.78,62298.11,62960.46,63630.36,64307.03,64976.83,65651.62,66330.58,67012.87,68697.62,69389.07,70081.19,70773.05,71477.86,72180.70,72880.59,73591.09,74296.82,75011.60,75734.72,76450.31
 					],
                 },
                 {
-					label: 'Standard Devation 1',
+                    label: 'Standard Devation 1',
+                    fill: false,
                     borderColor: '#c3d0ff',
-                    backgroundColor: '#c3d0ff',
+                    backgroundColor: '#c3d0ff', 
 					data: [
-                        0, 220, 320, 420
+                    2000,2402.42,2776.70,3148.76,3520.50,3892.87,4266.17,4640.39,5015.63,5392.48,5770.40,6149.57,7530.43,7918.83,8308.38,8699.46,9091.78,9485.13,9880.32,10276.39,10674.39,11073.44,11473.74,11875.56,13279.28,13689.42,14101.16,14513.70,14927.68,15342.33,15758.40,16176.75,16596.73,17017.65,17440.52,17864.71,19289.56,19720.97,20153.58,20586.73,21021.81,21458.23,21897.53,22336.98,22778.17,23220.53,23665.80,24111.12,25558.28,26011.17,26464.80,26921.24,27377.30,27835.11,28294.15,28756.71,29219.48,29684.82,30152.26,30621.31,32091.49,32566.50,33041.57,33519.46,33999.73,34481.91,34965.54,35450.13,35935.20,36423.83,36911.98,37402.82,38895.93,39394.96,39895.39,40396.75,40898.57,41400.36,41905.78,42410.24,42917.48,43427.10,43938.68,44451.80,45966.04,46484.84,47008.49,47531.95,48054.75,48581.21,49110.96,49638.71,50168.93,50701.21,51235.17,51770.39,53306.46,53852.04,54397.67,54942.89,55492.75,56041.37,56593.89,57149.95,57703.49,58259.79,58818.48,59379.19,60941.54,61508.87,62077.04,62645.65,63220.54,63795.11,64368.93,64948.00,65525.53,66107.61,66693.93,67277.49
 					],
                 },
                 {
                     label: 'Standard Devation -1',
-                    fill: true,
+                    fill: false,
                     borderColor: '#8c9ddb',
-                    backgroundColor: '#8c9ddb',
+                    backgroundColor: '#8c9ddb', 
 					data: [
-                        0, 260, 360, 460
+                    2000,2286.95,2605.04,2927.18,3251.40,3576.75,3902.92,4229.92,4557.63,4885.52,5214.08,5543.14,6872.30,7200.35,7529.06,7858.08,8187.66,8518.00,8848.38,9179.66,9510.89,9842.87,10175.43,10508.32,11841.21,12174.19,12507.48,12841.78,13176.54,13512.43,13848.79,14184.87,14521.26,14858.55,15195.87,15533.77,16872.83,17211.99,17551.87,17893.05,18234.31,18576.17,18917.32,19260.11,19603.17,19947.00,20290.10,20634.95,21980.00,22325.98,22673.13,23019.69,23368.39,23717.41,24067.19,24415.79,24766.04,25115.94,25465.89,25816.30,27167.60,27520.70,27875.60,28229.98,28584.22,28938.72,29293.88,29650.10,30007.80,30364.39,30723.26,31081.77,32440.28,32799.76,33159.99,33521.36,33884.27,34249.11,34612.86,34979.32,35345.40,35711.45,36077.81,36444.83,37812.87,38183.09,38551.28,38921.59,39294.41,39666.20,40037.27,40411.94,40786.58,41161.51,41537.06,41913.56,43291.36,43667.40,44045.42,44425.78,44804.40,45186.05,45566.58,45946.28,46330.04,46713.62,47097.31,47481.42,48866.27,49253.12,49641.36,50031.32,50418.32,50807.66,51199.68,51589.60,51982.84,52374.54,52764.98,53159.70
 					],
                 },
                 {
-					label: 'Standard Devation -2',
+                    label: 'Standard Devation -2',
+                    fill: false,
                     borderColor: '#7a8ccb',
-                    backgroundColor: '#7a8ccb',
+                    backgroundColor: '#7a8ccb', 
 					data: [
-                        0, 300, 400, 520
+                    2000,2229.22,2521.28,2820.80,3123.78,3428.31,3733.76,4040.13,4347.18,4653.88,4961.16,5268.71,6575.75,6877.47,7179.78,7482.00,7784.62,8088.01,8390.77,8694.55,8997.56,9301.29,9605.42,9909.47,11212.82,11513.23,11813.54,12115.08,12416.79,12719.94,13023.27,13325.37,13627.34,13930.30,14232.61,14535.31,15839.47,16140.76,16442.70,16746.35,17049.44,17352.95,17654.41,17958.23,18261.84,18566.16,18868.41,19173.19,20477.61,20780.74,21085.33,21388.09,21694.11,21999.99,22306.56,22610.20,22916.18,23220.77,23524.72,23828.81,25133.80,25439.10,25747.01,26053.20,26358.40,26663.34,26968.76,27275.40,27584.01,27889.84,28199.12,28506.99,29814.11,30120.01,30426.55,30734.44,31044.39,31357.12,31667.10,31981.27,32293.98,32605.86,32917.55,33229.68,34542.91,34857.14,35166.88,35479.73,35796.38,36110.37,36422.28,36739.97,37056.81,37373.39,37690.32,38008.20,39327.64,39640.92,39957.01,40276.56,40592.16,40912.46,41229.93,41545.11,41866.85,42187.45,42507.46,42827.43,44147.92,44469.08,44791.94,45117.08,45436.08,45758.49,46084.91,46406.72,46733.69,47057.09,47377.40,47704.60
 					],
 				}]
 			},
 			options: {
                 maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                    left: 5,
+                    right: 5
+                    }
+                },
+                elements: { 
+                    point: { 
+                        radius: 0 
+                    } 
+                },
+                hover: {
+					mode: 'nearest',
+					intersect: true
+				},
                 tooltips: {
-                    mode: 'nearest',
-                    position: 'average',
-                    backgroundColor: '#fff',
-                    bodyFontColor: 'grey',
-                    titleFontColor: 'grey',
-                    bodyFontSize: 20,
-                    bodySpacing: 5,
-                    custom: function(tooltip) {
-                        if (!tooltip) return;
-                        // disable displaying the color box;
-                        tooltip.displayColors = false;
-                    },
-                    callbacks: {
-                        // use label callback to return the desired label
-                        label: function(tooltipItem, data) {
-                        return tooltipItem.xLabel + " :" + tooltipItem.yLabel;
-                        },
-                        // remove title
-                        title: function(tooltipItem, data) {
-                        return;
+                    enabled: false,
+                    intersect: true,
+                    custom: function(tooltipModel) {
+                        // Tooltip Element
+                        var tooltipEl = document.getElementById('chartjs-tooltip');
+
+                        // Create element on first render
+                        if (!tooltipEl) {
+                            tooltipEl = document.createElement('div');
+                            tooltipEl.id = 'chartjs-tooltip';
+                            tooltipEl.innerHTML = "<table></table>";
+                            document.body.appendChild(tooltipEl);
                         }
+
+                        // Hide if no tooltip
+                        if (tooltipModel.opacity === 0) {
+                            tooltipEl.style.opacity = 0;
+                            return;
+                        }
+
+                        tooltipEl.classList.add('no-transform');
+
+                        function getBody(bodyItem) {
+                            return bodyItem.lines;
+                        }
+
+                        // Set Text
+                        if (tooltipModel.body) {
+                            var dateLines = tooltipModel.title || [];
+                            var bodyLines = tooltipModel.body.map(getBody);
+                            var bodyLinesSeparated = bodyLines[0][0].split(':');
+                            var bodyText = bodyLinesSeparated[0];
+                            var bodySum = bodyLinesSeparated[1] + ' $';
+
+                            var innerHtml = '<thead>';
+
+                            dateLines.forEach(function(date) {
+                                innerHtml += `<tr><th class="tooltip__header">  <span>${date}<span> | <span>${bodyText}</span>  </th></tr>`;
+                            });
+                            innerHtml += '</thead><tbody>';
+
+                            bodyLines.forEach(function( i) {
+                                var span = `<span>${bodySum}</span>`;
+                                innerHtml += '<tr style="text-align:center"><td class="tooltip__sum">' + span + '</td></tr>';
+                            });
+                            innerHtml += '</tbody>';
+
+                            var tableRoot = tooltipEl.querySelector('table');
+                            tableRoot.innerHTML = innerHtml;
+                        }
+
+                        // `this` will be the overall tooltip
+                        var position = this._chart.canvas.getBoundingClientRect();
+
+                        // Display, position, and set styles for font
+                        tooltipEl.style.opacity = 1;
+                        tooltipEl.style.position = 'fixed';
+                        tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
+                        tooltipEl.style.top = position.top + tooltipModel.caretY + 'px';
+                        tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
                     }
                 },
                 scales: {
+                    right: 50,
                     xAxes: [{
                         gridLines: {
                             display:false
+                        },
+                        ticks: {
+                            labelOffset: 10,
+                            autoSkip: true,
+                            maxTicksLimit: 17,
+                            maxRotation: 90,
+                            minRotation: 90,
+                            
                         }
                     }],
                     yAxes: [{
@@ -440,8 +517,8 @@
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: 180,
-                        endValue: 200,
+                        value: 50000,
+                        endValue: 50000,
                         borderColor: '#4c5d9c',
                         borderWidth: 4,
                         label: {
@@ -458,8 +535,8 @@
                     {
                         type: 'line',
                         mode: 'vertical',
-                        scaleID: 'y-axis-0',
-                        value: 60,
+                        scaleID: 'x-axis-0',
+                        value: '06.2027',
                         borderColor: '#4c5d9c',
                         borderWidth: 4,
                         label: {

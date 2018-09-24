@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="box__footer">
                                     <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>
-                                    <button class="box__next-btn btn" type="submit" disabled><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow-right"></span></button>
+                                    <button class="box__next-btn btn btn__success" type="submit"><span class="hide-mobile">Next step</span> <span class="angle angle-right icon-arrow-right"></span></button>
                                 </div>
                             </form>
                         </div>
@@ -148,6 +148,7 @@
     <script src="js/scripts.js"></script>
     <script>
         // Risk Chart Pie
+
         var ctx = document.getElementById('risk-chart').getContext('2d');
         var riskChart = new Chart(ctx, {
             // The type of chart we want to create
@@ -158,8 +159,8 @@
                 labels: ["Low Risk","Medium Risk","Risk"],
                 datasets: [{
                     borderColor: '#fff',
-                    borderWidth: 10,
-                    data: [15,60, 25],
+                    borderWidth: 5,
+                    data: pref_data,
                     circumference: 100 * Math.PI,
                     backgroundColor: [
                         '#93c25f',
@@ -196,11 +197,17 @@
                         padding: 40
                     }
                 },
-                animation: {
-                    onProgress: drawPercentage
+                plugins: {
+                    labels: {
+                        render: 'percentage',
+                        fontColor: '#fff',
+                        fontSize: 14,
+                        fontFamily: 'Montserrat,sans-serif',
+                    }
                 }
             }
         });
+
     </script>
 </body>
 </html>

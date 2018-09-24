@@ -25,23 +25,23 @@ assetEarn.result.subscribe( (newVal) => {
 });
 
 assetEarn.cash.subscribe( (newVal) => {
-    allo_cash = newVal;
+    allo_cash = parseInt(newVal);
 });
 assetEarn.bonds.subscribe( (newVal) => {
-    allo_bonds = newVal;
+    allo_bonds = parseInt(newVal);
 });
 assetEarn.equities.subscribe( (newVal) => {
-    allo_equities = newVal;
+    allo_equities = parseInt(newVal);
 });
 assetEarn.real_estates.subscribe( (newVal) => {
-    allo_real_estates = newVal;
+    allo_real_estates = parseInt(newVal);
 });
 assetEarn.commodities.subscribe( (newVal) => {
-    allo_commodities = newVal;
+    allo_commodities = parseInt(newVal);
 });
 assetEarn.modern.subscribe( (newVal) => {
-    allo_modern = newVal;
+    allo_modern = parseInt(newVal);
 });
 assetEarn.passion.subscribe( (newVal) => {
-    allo_passion = newVal;
+    allo_passion = parseInt(newVal);
 });

@@ -387,6 +387,7 @@
 	}
 	&__inner{
 		margin-top: 15px;
+		display: none;
 		@include media(">tablet") {
 			display: block !important;
 		}
@@ -419,7 +420,41 @@
 		margin-right: 10px;
 	}
 }
+#chartjs-tooltip{
+	transform: translateX(-50%);
+	margin-top: -110px;
+	background: $white;
+	box-shadow: 0 15px 50px rgba($moody_blue, .3);
+	padding: 10px;
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		bottom: -25px;
+		left: 50%;
+		transform: translateX(-50%);
+		border: 15px solid transparent;	border-top: 15px solid $white;
+	}
+}
+.tooltip__header{
+	font-weight: 400;
 
+	@include media("<phone") {
+		font-size: 10px;
+	}
+}
+.tooltip__sum{
+	color: $moody_blue;
+	font-weight: 500;
+	font-size: 20px;
+	padding-top: 10px;
+	@include media("<phone") {
+		font-size: 14px;
+		padding-top: 5px;
+	}
+}
 
 
 

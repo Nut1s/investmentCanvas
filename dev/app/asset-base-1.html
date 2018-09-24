@@ -53,27 +53,27 @@
                                         <div class="col-xs-12">
                                             <div class="column-centered">
                                                 <h3 class="box__title">Monthly</h3>
-                                                <p class="box__subtitle">(like salary, pension or support)</p>
+                                                <p class="box__subtitle earing-subtitle">(like salary, pension or support)</p>
                                                 <div class="input-earn width-100">
                                                     <span class="input-earn__icon icon-dollar"></span>
-                                                    <input class="input-earn__input asset-earn-month input-earn__input_width-100 input money-mask" data-bind="value: monthly" type="number" min="0">
+                                                    <input class="input-earn__input asset-earn-month input-earn__input_width-100 input" data-bind="textInput: monthly" type="number" min="0">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
                                             <div class="column-centered">
                                                 <h3 class="box__title">Yearly</h3>
-                                                <p class="box__subtitle">(like dividends or bonus)</p>
+                                                <p class="box__subtitle earing-subtitle">(like dividends or bonus)</p>
                                                 <div class="input-earn width-100">
                                                     <span class="input-earn__icon icon-dollar"></span>
-                                                    <input class="input-earn__input input-earn__input_width-100 asset-earn-year input money-mask" data-bind="value: yearly" type="number" min="0">
+                                                    <input class="input-earn__input input-earn__input_width-100 asset-earn-year input" data-bind="textInput: yearly" type="number" min="0">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="column-centered">
                                         <h3 class="box__title box__title_pb-15">Sum of annual earning:</h3>
-                                        <p class="box__amount-container"><span class="icon-dollar"></span><span class="box__amount money-mask" id="asset-earn" data-bind="text: result"></span></p>
+                                        <p class="box__amount-container"><span class="icon-dollar"></span><span class="box__amount" id="asset-earn" data-bind="text: result"></span></p>
                                     </div>
                                     <div class="box__footer">
                                         <a class="box__back-btn" href="#"> <span class="angle angle-left icon-arrow-left"></span><span class="hide-mobile">Back</span></a>
