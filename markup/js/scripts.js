@@ -302,19 +302,35 @@ var allo_cash = assetEarn.cash(),
 			}
 		});
 
-		// For pages with range-inputs
-		checkInput('.input-earn__input, .input-range:not(".asset-input")');
+		
+		// For investment Goal 2
+		$('input').change(function() {
+			if(parseInt($('.goal-amount').val()) > 0 && parseInt($('.goal-time').val()) > 0 ){
+				enableBtn()
+			} else{
+				disableBtn()
+			}
+		})
+		// For Asset Base 1
+		$('input').keyup(function() {
+			if(parseInt($('.asset-earn-over').text()) > 0){
+				enableBtn()
+			} else{
+				disableBtn()
+			}
+		})
+		// For asset Base 4
+		$('input').change(function() {
+			var investMonth = parseInt($('.asset-user-invest-month').val()),
+				investYear = parseInt($('.asset-user-invest-year').val()),
+				userInitial = parseInt($('.asset-user-initial').val())
 
-		function checkInput(classname) {
-			$(classname).change(function (e) { 
-				if($(this).val().length) {
-					enableBtn();
-				} else {
-					disableBtn();
-				}
-			});
-		}
-
+			if(investMonth + investYear  + userInitial ){
+				enableBtn()
+			} else{
+				disableBtn()
+			}
+		})
 	}
 	// Helper functions
 	function enableBtn() {

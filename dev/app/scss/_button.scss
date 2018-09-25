@@ -20,6 +20,7 @@
 	&.disabled,
 	&[disabled]{
 		cursor: default;
+		background-color: #dddddd;
 	}
 	&__success{
 		background: $mantis;

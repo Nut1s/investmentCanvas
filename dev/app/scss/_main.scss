@@ -455,6 +455,33 @@
 		padding-top: 5px;
 	}
 }
+#legend-container {
+	ul{
+		display: flex;
+		list-style: none;
+		flex-wrap: wrap;
+		justify-content: center;
+		@include media("<500px") {
+			padding-left: 50px;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		li{
+			display: flex;
+			align-items: center;
+			margin-right: 10px;
+			padding-bottom: 10px;
+			span{
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				min-width: 15px;
+				border-radius: 50%;
+				margin-right: 5px;
+			}
+		}
+	}
+}
 
 
 
